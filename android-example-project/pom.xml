@@ -16,7 +16,7 @@
 	<properties>
 		<platform.version>4.1.1.4</platform.version>
 		<android.plugin.version>3.8.0</android.plugin.version>
-        <android-sdk-path>${env.PATH}</android-sdk-path>
+        <android.sdk.path>/Users/jaybono30/Software Development/android-sdk-macosx</android.sdk.path>
     </properties>
 
 	<dependencyManagement>
@@ -51,8 +51,7 @@
 					<version>${android.plugin.version}</version>
 					<configuration>
 						<sdk>
-							<platform>16</platform>
-                            <path>${android-sdk-path}</path>
+							<platform>19</platform>
 						</sdk>
 					</configuration>
 				</plugin>
