@@ -44,6 +44,12 @@
 				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 				<artifactId>android-maven-plugin</artifactId>
 				<configuration>
+                    <emulator>
+                        <avd>testDevice</avd>
+                        <!-- Wait for emulator starting (3 minutes) -->
+                        <wait>180000</wait>
+                        <!--<options>-no-skin</options> -->
+                    </emulator>
 					<test>
 						<!--<skip>true|false|auto</skip> -->
 						<!--<instrumentationPackage>packageName</instrumentationPackage> -->
@@ -63,6 +69,22 @@
 					</test>
 				</configuration>
 				<extensions>true</extensions>
+                 <executions>
+                    <execution>
+                        <id>startEmulator</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>emulator-start</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>stopEmulator</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>emulator-stop</goal>
+                        </goals>
+                    </execution>
+                </executions>
 			</plugin>
 		</plugins>
 	</build>
